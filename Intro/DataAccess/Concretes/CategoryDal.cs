@@ -17,33 +17,38 @@ namespace Intro.DataAccess.Concretes
             new Category { Name="Kategori2",Id=2,Description="Açıklama2"}};
 
         }
-        public void Insert(Category entity)
+        public void Insert(Category category)
         {
-            categories.Add(entity);
+            //DB İşlemleri
+            categories.Add(category);
         }
 
-        public void Delete(Category entity)
+        public void Delete(Category category)
         {
-            var deletedCategory = categories.First(c => c.Id == entity.Id);
+            //DB İşlemleri
+            var deletedCategory = categories.First(o => o.Id == category.Id);
             categories.Remove(deletedCategory);
         }
 
         public Category GetById(int id)
         {
-            return categories.First(c => c.Id == id); ;
+            //DB İşlemleri
+            return categories.First(o => o.Id == id); ;
         }
 
         public List<Category> List()
         {
+            //DB İşlemleri
             return categories;
         }
 
-        public void Update(Category entity)
+        public void Update(Category category)
         {
-            var updatedCategory = categories.First(c => c.Id == entity.Id);
-            updatedCategory.Id = entity.Id;
-            updatedCategory.Description = entity.Description;
-            updatedCategory.Name = entity.Name;
+            //DB İşlemleri
+            var updatedCategory = categories.First(o => o.Id == category.Id);
+            updatedCategory.Id = category.Id;
+            updatedCategory.Description = category.Description;
+            updatedCategory.Name = category.Name;
 
 
         }

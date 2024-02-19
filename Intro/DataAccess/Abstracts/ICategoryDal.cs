@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Intro.DataAccess.Abstracts
 {
-    public interface ICategoryDal:IRepository<Category>
+    public interface ICategoryDal:IRepository<Category> 
     {
     }
 }

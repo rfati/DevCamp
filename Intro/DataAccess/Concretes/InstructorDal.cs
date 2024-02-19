@@ -16,34 +16,38 @@ namespace Intro.DataAccess.Concretes
             instructors = new List<Instructor>() { new Instructor { FirstName = "Yayıncı1", LastName = "Yayıncı1", Description = "Açıklama1", Id = 1 }, new Instructor { FirstName = "Yayıncı2", LastName = "Yayıncı2", Description = "Açıklama2", Id = 2 } };
 
         }
-        public void Insert(Instructor entity)
+        public void Insert(Instructor instructor)
         {
-            instructors.Add(entity);
+            //DB İşlemleri
+            instructors.Add(instructor);
         }
 
-        public void Delete(Instructor entity)
+        public void Delete(Instructor instructor)
         {
-            var deletedInstructor = instructors.First(c => c.Id == entity.Id);
+            //DB İşlemleri
+            var deletedInstructor = instructors.First(o => o.Id == instructor.Id);
             instructors.Remove(deletedInstructor);
         }
 
         public Instructor GetById(int id)
         {
-            return instructors.First(c => c.Id == id); ;
+            //DB İşlemleri
+            return instructors.First(o => o.Id == id);
         }
 
         public List<Instructor> List()
         {
+            //DB İşlemleri
             return instructors;
         }
 
-        public void Update(Instructor entity)
+        public void Update(Instructor instructor)
         {
-            var updatedInstructor = instructors.First(c => c.Id == entity.Id);
-            updatedInstructor.Id = entity.Id;
-            updatedInstructor.Description = entity.Description;
-            updatedInstructor.FirstName = entity.FirstName;
-            updatedInstructor.LastName = entity.LastName;
+            var updatedInstructor = instructors.First(o => o.Id == instructor.Id);
+            updatedInstructor.Id = instructor.Id;
+            updatedInstructor.Description = instructor.Description;
+            updatedInstructor.FirstName = instructor.FirstName;
+            updatedInstructor.LastName = instructor.LastName;
             
         }
     }

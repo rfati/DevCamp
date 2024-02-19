@@ -20,35 +20,39 @@ namespace Intro.DataAccess.Concrate
             new Course { Name="Kurs2",Id=2,Description="Açıklama2",InstructorId=2,CategoryId=2 } };
 
         }
-        public void Insert(Course entity)
+        public void Insert(Course course)
         {
-            courses.Add(entity);
+            //DB İşlemleri
+            courses.Add(course);
         }
 
-        public void Delete(Course entity)
+        public void Delete(Course course)
         {
-            var deletedCourse = courses.First(c => c.Id == entity.Id);
+            //DB İşlemleri
+            var deletedCourse = courses.First(c => c.Id == course.Id);
             courses.Remove(deletedCourse);
         }
 
         public Course GetById(int id)
         {
-            return courses.First(c => c.Id == id); ;
+            //DB İşlemleri
+            return courses.First(course => course.Id == id); ;
         }
 
         public List<Course> List()
-        {
+        {   //DB İşlemleri
             return courses;
         }
 
-        public void Update(Course entity)
+        public void Update(Course course)
         {
-            var updatedCourse = courses.First(c => c.Id == entity.Id);
-            updatedCourse.Id = entity.Id;
-            updatedCourse.Description = entity.Description;
-            updatedCourse.Name = entity.Name;
-            updatedCourse.InstructorId = entity.InstructorId;
-            updatedCourse.CategoryId = entity.CategoryId;
+            //DB İşlemleri
+            var updatedCourse = courses.First(o => o.Id == course.Id);
+            updatedCourse.Id = course.Id;
+            updatedCourse.Description = course.Description;
+            updatedCourse.Name = course.Name;
+            updatedCourse.InstructorId = course.InstructorId;
+            updatedCourse.CategoryId = course.CategoryId;
 
         }
 
